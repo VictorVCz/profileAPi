@@ -15,5 +15,7 @@ namespace profileAPi.Data
         }
 
         public DbSet<Profile> ProfileData { get; set; }
+        public DbSet<Framework> FrameworkData { get; set; }
+        public DbSet<Hobby> HobbyData { get; set; }
     }
 }

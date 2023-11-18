@@ -16,15 +16,17 @@ namespace profileAPi.Models
         public string Lastname { get; set; } = string.Empty;
 
         public string Email { get; set; } = string.Empty;
+        
+        public int Age { get; set; }
+
+        public string Country { get; set; } = string.Empty;
 
         public string City { get; set; } = string.Empty;
 
         public string Summary { get; set; } = string.Empty;
+        
+        public List<Framework> Frameworks { get; set; } = new List<Framework>();
 
-        [NotMapped]
-        public JsonObject[] Frameworks { get; set; }
-
-        [NotMapped]
-        public JsonObject[] Hobbies { get; set; }
+        public List<Hobby> Hobbies { get; set; } = new List<Hobby>();
     }
 }

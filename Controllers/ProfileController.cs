@@ -27,44 +27,33 @@ namespace profileAPi.Controllers
         [HttpGet("profile")]
         public IActionResult getData()
         {
-            
-            
-
             IQueryable<Profile> query = context.ProfileData;
 
-            var profileData = query.ToList();
+            IQueryable<Framework> frameworkQuery = context.FrameworkData;
+            IQueryable<Hobby> hobbyQuery = context.HobbyData;
+
+            var frameworklist = frameworkQuery.ToList();
+            var hobbylist = hobbyQuery.ToList();
+            
+            var profileData = new {
+                query
+            };
+            
 
             return Ok(profileData);
         }
 
-        [HttpPost("registerData")]
-        public IActionResult postData(Profile request)
+        [HttpPost("registerPersonalData")]
+        public IActionResult PersonalData(Profile request)
         {
+            
 
-            /*
-            var Profile = new {
-                name="Victor",
-                lastname="Veliz Cruz",
-                age="24",
-                email="victor.veliz@alumnos.ucn.cl",
-                city="Antofagasta",
-                country="Chile",
-                summary="M",
-                frameworks=[
-                    {
-                        name="React",
-                        date="01-01-2022",
-                        learned="no"
-
-                    }
-                ]
-
-            };
-            */
             var profileData = new Profile {
                 Name = request.Name,
                 Lastname = request.Lastname,
                 Email = request.Email,
+                Age = request.Age,
+                Country = request.Country,
                 City = request.City,
                 Summary = request.Summary,
                 Frameworks = request.Frameworks,
@@ -76,5 +65,32 @@ namespace profileAPi.Controllers
 
             return Ok();
         }
+
+        [HttpPost("registerFrameworkData")]
+        public IActionResult FrameworkData(Framework request)
+        {
+            var newFramework = new Framework {
+                FrameworkName = request.FrameworkName,
+                FrameworkDate = request.FrameworkDate,
+                IsLearned = request.IsLearned
+            };
+
+            context.FrameworkData.Add(newFramework);
+            context.SaveChanges();
+            return Ok(newFramework);
+        }
+
+        [HttpPost("registerHobbyData")]
+        public IActionResult HobbyData(Hobby request)
+        {
+            var newHobby = new Hobby {
+                HobbyName = request.HobbyName
+            };
+
+            context.HobbyData.Add(newHobby);
+            context.SaveChanges();
+            return Ok(newHobby);
+        }
+
     }
 }
