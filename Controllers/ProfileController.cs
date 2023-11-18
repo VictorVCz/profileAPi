@@ -28,17 +28,8 @@ namespace profileAPi.Controllers
         public IActionResult getData()
         {
             IQueryable<Profile> query = context.ProfileData;
-
-            IQueryable<Framework> frameworkQuery = context.FrameworkData;
-            IQueryable<Hobby> hobbyQuery = context.HobbyData;
-
-            var frameworklist = frameworkQuery.ToList();
-            var hobbylist = hobbyQuery.ToList();
             
-            var profileData = new {
-                query
-            };
-            
+            var profileData = query.FirstOrDefault();     
 
             return Ok(profileData);
         }
