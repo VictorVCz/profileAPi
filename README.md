@@ -2,7 +2,7 @@ Primero debemos preparar el backend instalando el SDK de .NET 7 dependiendo de n
 
 Una vez instalado nos dirijimos a la carpeta 'Backend',
 
-## /profileFrontEnd/Backend
+## /profileAPi/Backend
 
 Una vez dentro de directorio del backend realizaremos el siguiente codigo en la terminal.
 
@@ -22,7 +22,7 @@ Indicando que la compilación fue un exito.
 
 ##Sin cerrar la terminal abriremos otra terminal donde iremos al directorio
 
-## /profileFrontEnd/Frontend
+## /profileAPi/Frontend
 
 donde debera de instalar las dependencias de paquetes node, ejecutando en la terminal la siguiente linea
 
@@ -33,7 +33,7 @@ Una vez instalada las dependencias podremos ejecutar el frontend sin problemas c
 ## 'npm run dev'
 
 Se desplegara el siguiente mensaje: 
-> profilefrontend@0.0.0 dev
+> profileAPi@0.0.0 dev
 > vite
 
 
